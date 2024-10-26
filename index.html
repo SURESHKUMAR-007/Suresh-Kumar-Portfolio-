@@ -192,19 +192,31 @@
     </section>
 
             <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+           <section class="contact section" id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact__container bd-grid">
+        <form action="https://formspree.io/f/movqjqpz" method="POST" onsubmit="return validateForm()">
+            <input type="text" name="name" placeholder="Full Name" class="contact__input" required>
+            <input type="email" name="email" placeholder="Email Address" class="contact__input" required>
+            <input type="tel" name="phone" placeholder="Your 10 Digit Phone No" class="contact__input" pattern="[0-9]{10}" required title="Please enter a 10-digit phone number">
+            <textarea name="message" id="" cols="30" rows="10" class="contact__input" placeholder="Enter Yor Message"></textarea>
+            <input type="submit" value="Submit" class="contact__button button">
+        </form>
+    </div>
+</section>
 
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-						<input type="number" placeholder="Phone No" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Submit" class="contact__button button">
-                    </form>
-                </div>
-            </section>
+<script>
+function validateForm() {
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const phonePattern = /^[0-9]{10}$/;
+
+    if (!phonePattern.test(phoneInput.value)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+    }
+    return true;
+}
+</script>
         </main>
 
         <!--===== FOOTER =====-->
